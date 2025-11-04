@@ -270,8 +270,8 @@ function filterLatestCheckRunResults(runs) {
 }
 function isFailure(run) {
     if (run.status === 'completed') {
-        // all conclusions besides success or skipped are considered failures
-        return run.conclusion !== 'success' && run.conclusion !== 'skipped';
+        // all conclusions besides success, skipped or neutral are considered failures
+        return run.conclusion !== 'success' && run.conclusion !== 'skipped' && run.conclusion !== 'neutral';
     }
     // run is still queued or pending
     return false;
